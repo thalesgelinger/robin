@@ -1,0 +1,13 @@
+build:
+  ios:
+    app_name: "jazidaapp"
+    environments:
+      development:
+        increment_build_number: true
+        scheme: "jazidaapp"
+        export_method: "ad-hoc"
+      production:
+        increment_build_number: true
+        scheme: "jazidaapp"
+        export_method: "app-store"
+

@@ -1,0 +1,33 @@
+build:
+  android:
+    development:
+      distribution: internal
+      buildType: apk
+    production:
+      distribution: store
+      channel: production
+      buildType: app-bundle
+
+  ios:
+    development:
+      distribution: internal
+      simulator: true
+    production:
+      distribution: store
+      channel: production
+      enterpriseProvisioning: universal
+
+deploy:
+  android:
+    production:
+      store: true
+      playStore:
+        enabled: true
+        track: production
+
+  ios:
+    production:
+      store: true
+      appStore:
+        enabled: true
+        track: production

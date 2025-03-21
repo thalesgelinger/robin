@@ -1,0 +1,105 @@
+build:
+  android:
+    development:
+      distribution: internal
+      buildType: apk
+    preview:
+      distribution: internal
+      channel: preview
+      buildType: app-bundle
+    production:
+      distribution: store
+      channel: production
+      buildType: app-bundle
+
+  ios:
+    development:
+      distribution: internal
+      simulator: true
+    preview:
+      distribution: internal
+      channel: preview
+      simulator: false
+    production:
+      distribution: store
+      channel: production
+      enterpriseProvisioning: universal
+
+  web:
+    app1:
+      development:
+        framework: nextjs
+        environment: development
+        outputDir: .next
+      preview:
+        framework: nextjs
+        environment: preview
+        outputDir: .next
+      production:
+        framework: nextjs
+        environment: production
+        outputDir: .next
+
+    app2:
+      development:
+        framework: nuxt
+        environment: development
+        outputDir: .output
+      preview:
+        framework: nuxt
+        environment: preview
+        outputDir: .output
+      production:
+        framework: nuxt
+        environment: production
+        outputDir: .output
+
+deploy:
+  android:
+    production:
+      store: true
+      playStore:
+        enabled: true
+        track: production
+
+  ios:
+    production:
+      store: true
+      appStore:
+        enabled: true
+        track: production
+
+  web:
+    app1:
+      development:
+        provider: kamal
+        domain: app1-dev.example.com
+      preview:
+        provider: kamal
+        domain: app1-preview.example.com
+      production:
+        provider: kamal
+        domain: app1.example.com
+
+    app2:
+      development:
+        provider: kamal
+        domain: app2-dev.example.com
+      preview:
+        provider: kamal
+        domain: app2-preview.example.com
+      production:
+        provider: kamal
+        domain: app2.example.com
+
+proxy:
+  enabled: true
+  provider: kamal
+  ssl: true
+  apps:
+    - name: app1
+      domain: app1.example.com
+      container: web
+    - name: app2
+      domain: app2.example.com
+      container: web
