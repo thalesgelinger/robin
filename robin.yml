@@ -1,13 +1,14 @@
 build:
   ios:
-    app_name: "jazidaapp"
+    app_name: jazidaapp
+    project_path: ./ios
+    output_dir: ./builds
     environments:
       development:
+        scheme: jazidaapp
         increment_build_number: true
-        scheme: "jazidaapp"
-        export_method: "ad-hoc"
+        export_method: development  
       production:
+        scheme: jazidaapp
         increment_build_number: true
-        scheme: "jazidaapp"
-        export_method: "app-store"
-
+        export_method: app-store
